@@ -21,13 +21,7 @@ const stories = [
   { id: '7', name: 'oh my god', hasStory : false, img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
 ];
 
-const posts = [
-  // {
-  //   id: '1',
-  //   user: 'folkatif',
-  //   img: require('./assets/post.jpg'),
-  //   description: 'Hari ini, tanggal 7 Agustus jadi hari badut sedunia.',
-  // },
+const FEEDS_DATA = [
   {
     id: '1',
     username: "Levi Ackerman",
@@ -142,7 +136,7 @@ export default () => {
       </View>
 
       <ScrollView style={styles.feedContainer}>
-      {posts.map((post) => (
+      {FEEDS_DATA.map((post) => (
         <View key={post.id} style={styles.post}>
           <View style={styles.postHeader}>
             <View style={styles.postHeaderLeft}>
@@ -175,11 +169,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  // instaTest: {
-  //   color: '#00000',
-  //   fontSize: 30,
-  //   fontFamily: 'StyleScript',
-  // },
+
+  //container atas
   navBar: {
     height: 60,
     backgroundColor: '#fff',
@@ -191,24 +182,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   navBarTitle: {
-    // color: '#00000',
     fontFamily: 'StyleScript',
     fontSize: 30,
     fontWeight: 'bold',
     alignItems: 'flex-start',
   },
   navBarIcon: {
+    fontSize: 15,
+    marginLeft: 10,
     alignItems: 'flex-start',
     flex :1,
   },
   navBarIconsContainer: {
     flexDirection: 'row',
-    gap: 10,
+    gap: 20,
   },
   navBarIcons: {
     flexDirection: 'row-reverse',
     justifyContent: 'space-between',
   },
+
+  //story bar
   storiesContainer: {
     height: 100,
     backgroundColor: '#fff',
@@ -238,6 +232,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 5,
   },
+
+  //suggested
   suggestedContainer: {
     paddingVertical: 10,
     paddingHorizontal: 15,
@@ -252,9 +248,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
+
+  //feed
   olderPostsText: {
     fontSize: 12,
-    color: '#007aff',
+    color: '#75c5f9',
   },
   feedContainer: {
     flex: 1,
@@ -285,7 +283,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   followButton: {
-    backgroundColor: '#3897f0',
+    backgroundColor: '#ebeff6',
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 5,
