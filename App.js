@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, Image, ScrollView, FlatList, TouchableOpacity, View, SafeAreaView, Pressable } from 'react-native';
-import { Feather, MaterialCommunityIcons, AntDesign, FontAwesome6 } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons, AntDesign, FontAwesome6, Entypo } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
@@ -12,8 +12,8 @@ import AppLoading from 'expo-app-loading';
 // const tamaguiConfig = createTamagui(config)
 
 const stories = [
-  { id: '1', name: 'Bagas', hasStory : true, img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
-  { id: '2', name: 'Pragos', hasStory : true, img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
+  { id: '1', name: 'Bagas', hasStory : true, img: "https://cache.lahelu.com/image-PmIqgRCVN-78516" },
+  { id: '2', name: 'Pragos', hasStory : true, img: "https://i.pinimg.com/236x/22/8c/a4/228ca4e9d0944c1838c99972bdf4e428.jpg" },
   { id: '3', name: 'xxxTent', hasStory : false, img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
   { id: '4', name: 'billypramuda', hasStory : false, img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
   { id: '5', name: 'anonimus', hasStory : false, img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" },
@@ -143,9 +143,12 @@ export default () => {
               <Image source={{ uri: post.userImageUrl }} style={styles.profileImage} />
               <Text style={styles.postUser}>{post.username}</Text>
             </View>
-            <TouchableOpacity style={styles.followButton}>
-              <Text style={styles.followText}>Follow</Text>
-            </TouchableOpacity>
+            <View style={styles.postHeaderRight}>
+              <TouchableOpacity style={styles.followButton}>
+                <Text style={styles.followText}>Follow</Text>
+              </TouchableOpacity>
+              <Entypo style={styles.threeDotsIcon} name='dots-three-vertical' size={24} color="black"/>
+            </View>
           </View>
 
           <Image source={{ uri: post.feed.imageUrl }} style={styles.postImage} />
@@ -282,6 +285,10 @@ const styles = StyleSheet.create({
   postUser: {
     fontWeight: 'bold',
   },
+  postHeaderRight: {
+    flexDirection : 'row',
+    alignItems: 'center',
+  },
   followButton: {
     backgroundColor: '#ebeff6',
     paddingVertical: 5,
@@ -290,6 +297,9 @@ const styles = StyleSheet.create({
   },
   followText: {
     color: '#fff',
+  },
+  threeDotsIcon: {
+    marginLeft: 10,
   },
   postImage: {
     width: '100%',
