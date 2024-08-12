@@ -152,8 +152,16 @@ export default () => {
           </View>
 
           <Image source={{ uri: post.feed.imageUrl }} style={styles.postImage} />
-          <Text style={styles.postDescription}>{post.feed.caption}</Text>
+          <View style={styles.postIconContainer}>
+            <View style={styles.postIcons}>
+              <AntDesign name="hearto" size={24} color="black" />
+              <Feather style={{transform: 'rotate180deg', fontSize: 26 }} name="message-circle" size={24} color="black" />
+              <Feather name="send" size={24} color="black" />
+            </View>
+              <Feather name='bookmark' size={24} color="black" />
+          </View>
           <Text style={styles.likesText}>{post.feed.totalLikes} likes</Text>
+          <Text style={styles.postDescription}>{post.feed.caption}</Text>
           <Pressable>
           <Text style={styles.commentsText}>{post.feed.totalComments} comments</Text>
           </Pressable>
@@ -299,6 +307,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   threeDotsIcon: {
+    fontSize: 15,
     marginLeft: 10,
   },
   postImage: {
@@ -309,6 +318,16 @@ const styles = StyleSheet.create({
   },
   postDescription: {
     marginTop: 10,
+  },
+  postIconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  postIcons: {
+    gap: 15,
+    flexDirection: 'row',
   },
   likesText: {
     marginTop: 5,
